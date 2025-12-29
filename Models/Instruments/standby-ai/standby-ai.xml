@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<path>standby-ai.ac</path>
+	<effect>
+		<inherits-from>Models/Effects/interior/instrument-glass</inherits-from>
+		<object-name>ai.glass</object-name>
+	</effect>
+	<animation>
+		<type>material</type>
+		<object-name>ai.roll</object-name>
+		<object-name>ai.horizon</object-name>
+		<object-name>ai.ac_symbol</object-name>
+		<emission>
+			<red>   0.7 </red>
+			<green> 0.4 </green>
+			<blue>  0.4 </blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ai.roll</object-name>
+		<object-name>ai.horizon</object-name>
+		<property>instrumentation/attitude-indicator/indicated-roll-deg</property>
+		<factor>1</factor>
+		<axis>
+			<x>  1 </x>
+			<y>  0 </y>
+			<z>  0 </z>
+		</axis>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>ai.horizon</object-name>
+		<property>instrumentation/attitude-indicator/indicated-pitch-deg-deg</property>
+		<interpolation>
+			<entry><ind>-20</ind><dep> 0.0165</dep></entry>
+			<entry><ind>-10</ind><dep> 0.088 </dep></entry>
+			<entry><ind> 10</ind><dep>-0.088 </dep></entry>
+			<entry><ind> 20</ind><dep>-0.0165</dep></entry>
+		</interpolation>
+		<axis>
+			<x>  0 </x>
+			<y>  0 </y>
+			<z>  1 </z>
+		</axis>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>ai.knob</object-name>
+		<property>instrumentation/attitude-indicator/caged</property>
+		<factor>.015</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/attitude-indicator/caged</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>instrumentation/attitude-indicator/caged</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+</PropertyList>

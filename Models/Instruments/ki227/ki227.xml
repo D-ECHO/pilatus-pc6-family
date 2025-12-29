@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<!--
+	ADF indicator copied from c172p and adapted for use in DA40 NG club
+
+	Indicator model consists of the following items:
+	name "AircraftSymbol"
+	name "Case"
+	name "CompassRose"
+	name "CompassRoseCenter"
+	name "HDGSelector"
+	name "KI227.ADFNeedle"
+	name "Marker"
+-->
+
+<PropertyList>
+
+	<!-- instrument model path -->
+	<path>ki227.ac</path>
+
+	<params>
+		<rotation-deg>instrumentation/adf[0]/rotation-deg</rotation-deg><!-- this is HDG knob / compass card rotation -->
+		<adf-bearing-deg>instrumentation/adf[0]/indicated-bearing-deg</adf-bearing-deg>
+		<vor-bearing-deg>instrumentation/nav[0]/radials/reciprocal-radial-deg</vor-bearing-deg>
+		<indicated-heading>instrumentation/heading-indicator/indicated-heading-deg</indicated-heading>
+	</params>
+
+	<!-- optimize: do not draw instrument outside this distance range -->
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>10</max-m>
+	</animation>
+
+	<!-- backlight -->
+	<animation>
+		<type>material</type><!-- animate material properties: texture, shininess, color -->
+		<object-name>CompassRose</object-name>
+		<object-name>KI227.ADFNeedle</object-name>
+		<object-name>Marker</object-name>
+		<object-name>AircraftSymbol</object-name>
+		<emission>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+			<red>   0.4 </red>
+			<green> 0.2 </green>
+			<blue>  0.2 </blue>
+		</emission>
+		<!--specular>
+			<red> 0.0 </red>
+			<green> 0.0 </green>
+			<blue> 0.0 </blue>
+		</specular>
+		<ambient>
+			<red> 1 </red>
+			<green> 1 </green>
+			<blue> 1 </blue>
+		</ambient>
+		<diffuse>
+			<red> 0.3 </red>
+			<green> 0.3 </green>
+			<blue> 0.3 </blue>
+		</diffuse>
+		<shininess>
+			<red> 0 </red>
+			<green> 0 </green>
+			<blue> 0 </blue>
+		</shininess-->
+	</animation>
+
+	<!-- flood light -->
+	<animation>
+		<type>material</type>
+		<object-name>Case</object-name>
+		<object-name>HDGSelector</object-name>
+		<emission>
+			<factor-prop>systems/electrical/outputs/flood-lights"</factor-prop>
+			<red>   0.04 </red>
+			<green> 0.02 </green>
+			<blue>  0.02 </blue>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>CompassRose</object-name>
+		<property alias="../../params/rotation-deg" />
+		<factor>-1</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>KI227.ADFNeedle</object-name>
+		<property alias="../../params/adf-bearing-deg" />
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>knob</type>
+		<object-name>HDGSelector</object-name>
+
+		<property alias="../../params/rotation-deg" />
+		<factor>8.0</factor>
+		<axis>
+			<x>-1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.0318072</y-m>
+			<z-m>-0.0327009</z-m>
+		</center>
+
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property alias="../../../../params/rotation-deg" />
+				<factor>1</factor>
+				<min>0</min>
+				<max>360</max>
+				<wrap>1</wrap>
+			</binding>
+		</action>
+
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>adf-hdg</tooltip-id>
+				<label>ADF Heading: %3d</label>
+				<property alias="../../../../params/rotation-deg" />
+			</binding>
+		</hovered>
+	</animation>
+
+	<!-- TEXT OSG -->
+	<text>
+		<name>textosg</name>
+		<type type="string">literal</type>
+		<text type="string">ADF</text>
+		<draw-text type="bool">true</draw-text>
+		<font>Helvetica.txf</font>
+		<character-size type="double">0.014</character-size>
+		<character-aspect-ratio type="double">1.0</character-aspect-ratio>
+		<axis-alignment>yz-plane</axis-alignment>
+		<max-height>0.06</max-height>
+		<max-width>0.08</max-width>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+		<alignment>center-center</alignment>
+		<offsets>
+			<x-m> 0.008 </x-m>
+			<y-m> 0.000 </y-m>
+			<z-m> 0.000 </z-m>
+		</offsets>
+	</text>
+
+	<animation>
+		<type>material</type>
+		<object-name>textosg</object-name>
+		<emission>
+			<red> 0.8 </red>
+			<green> 0.8 </green>
+			<blue> 0.0 </blue>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>textosg</object-name>
+		<condition>
+			<property>sim/panel-hotspots</property>
+		</condition>
+	</animation>
+
+
+</PropertyList>

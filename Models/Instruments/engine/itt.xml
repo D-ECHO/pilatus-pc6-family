@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+	<path>itt.ac</path>
+	
+	<effect>
+		<inherits-from>Models/Effects/interior/instrument-glass</inherits-from>
+		<object-name>trq.glass</object-name>
+	</effect>
+	
+	<animation>
+		<type>material</type>
+		<object-name>itt</object-name>
+		<object-name>itt.needle</object-name>
+			<object-name>itt.1000</object-name>
+			<object-name>itt.100</object-name>
+			<object-name>itt.10</object-name>
+			<object-name>itt.1</object-name>
+		<emission>
+			<red>0.28</red>
+			<green>0.14</green>
+			<blue>0.07</blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>itt.needle</object-name>
+		<property>instrumentation/itt-indicator/indicated-itt-degc</property>
+		<interpolation>
+			<entry><ind>0.0</ind><dep>0.0</dep></entry>
+			<entry><ind>1200</ind><dep>210</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>itt.1000</object-name>
+		<property>instrumentation/itt-indicator/indicated-itt-degc</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>itt.100</object-name>
+		<property>instrumentation/itt-indicator/indicated-itt-degc</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>itt.10</object-name>
+		<property>instrumentation/itt-indicator/indicated-itt-degc</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+		
+		<animation>
+		<type>textranslate</type>
+		<object-name>itt.1</object-name>
+		<property>instrumentation/itt-indicator/indicated-itt-degc</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+		<animation>
+			<type>select</type>
+			<object-name>itt.1000</object-name>
+			<object-name>itt.100</object-name>
+			<object-name>itt.10</object-name>
+			<object-name>itt.1</object-name>
+			<condition>
+				<equals>
+					<property>instrumentation/itt-indicator/serviceable</property>
+					<value>true</value>
+				</equals>
+			</condition>
+		</animation>
+</PropertyList>

@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!-- torque pressure
+Syd Adams
+-->
+<PropertyList>
+
+    <path>trq.ac</path>
+	
+	<effect>
+		<inherits-from>Models/Effects/interior/instrument-glass</inherits-from>
+		<object-name>trq.glass</object-name>
+	</effect>
+    
+	<animation>
+		<type>material</type>
+		<object-name>trq</object-name>
+		<object-name>trq.needle</object-name>
+		<object-name>trq.10</object-name>
+		<object-name>trq.1</object-name>
+		<object-name>trq.01</object-name>
+		<object-name>trq.001</object-name>
+		<object-name>trq.point</object-name>
+		<emission>
+			<red>0.28</red>
+			<green>0.14</green>
+			<blue>0.07</blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>trq.needle</object-name>
+		<property>instrumentation/torque-indicator/indicated-torque-psi</property>
+		<interpolation>
+			<entry><ind>0.0</ind><dep>0.0</dep></entry>
+			<entry><ind>60</ind><dep>210.0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+		<animation>
+		<type>textranslate</type>
+		<object-name>trq.10</object-name>
+		<property>instrumentation/torque-indicator/indicated-torque-psi</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>trq.1</object-name>
+		<property>instrumentation/torque-indicator/indicated-torque-psi</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>trq.01</object-name>
+		<property>instrumentation/torque-indicator/indicated-torque-psi</property>
+		<factor>1</factor>
+		<step>.1</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>trq.001</object-name>
+		<property>instrumentation/torque-indicator/indicated-torque-psi</property>
+		<factor>1</factor>
+		<step>.1</step>
+		<bias>0.005</bias>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>trq.10</object-name>
+		<object-name>trq.1</object-name>
+		<object-name>trq.01</object-name>
+		<object-name>trq.001</object-name>
+		<object-name>trq.point</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/torque-indicator/serviceable</property>
+				<value>true</value>
+			</equals>
+		</condition>
+	</animation>
+</PropertyList>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	This simulates a Garmin GMA340 Audio Panel
+	
+	2023 Bea Wolf
+	
+	References:	http://canardaviation.com/PhillipJohnson/References/GMA%20340.pdf
+			https://airteam.s7.cdn-upgates.com/_cache/5/c/5c69ba2499965dd74c4c4eda406ef240-prod-gma-340-2.jpg
+			https://www.garmin.com/de-DE/p/93#overview
+			
+-->
+
+<PropertyList>
+	
+	<path>gma340.ac</path>
+	
+</PropertyList>

@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+
+<!-- Pilatus PC-6 Turbo Porter by Detlef Faber, JeeP Cheney and TheEagle -->
+
+<PropertyList>
+	
+	<path>pilots-flight-inst.ac</path>
+	
+	<model>
+		<path>Models/Instruments/asi/asi.xml</path>
+		<offsets>
+			<x-m> 0.0  </x-m>
+			<y-m>-0.097</y-m>
+			<z-m> 0.0  </z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Models/Instruments/ai/ai.xml</path>
+		<offsets>
+			<x-m>-0.006</x-m>
+			<y-m> 0.0. </y-m>
+			<z-m> 0.0  </z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Models/Instruments/alt/alt.xml</path>
+		<overlay>
+			<params>
+				<encoding>true</encoding>
+			</params>
+		</overlay>
+		<offsets>
+			<x-m>-0.0035</x-m>
+			<y-m> 0.093</y-m>
+			<z-m> 0.0  </z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Models/Instruments/trim/trim.xml</path>
+		<offsets>
+			<x-m>0.0</x-m>
+			<y-m>-0.15</y-m>
+			<z-m>-0.06  </z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Models/Instruments/ki227/ki227.xml</path>
+		<offsets>
+			<x-m> 0.0  </x-m>
+			<y-m>-0.097</y-m>
+			<z-m>-0.086</z-m>
+		</offsets>
+	</model>
+	
+	
+	<model>
+		<path>Models/Instruments/kcs55a/ka51b.xml</path>
+		<offsets>
+			<x-m> 0.0  </x-m>
+			<y-m>-0.15</y-m>
+			<z-m>-0.14</z-m>
+		</offsets>
+	</model>
+	<model>
+		<path>Models/Instruments/kcs55a/ki525a.xml</path>
+		<offsets>
+			<x-m> 0.0  </x-m>
+			<y-m> 0.0  </y-m>
+			<z-m>-0.087</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Models/Instruments/vsi/vsi.xml</path>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m> 0.093</y-m>
+			<z-m>-0.088</z-m>
+		</offsets>
+	</model><!--
+
+	<model>
+		<name>Altimeter Para</name>
+		<path>Models/Instruments/alt_para/alt_para.xml</path>
+		<offsets>
+			<x-m>2.992</x-m>
+			<y-m>-0.184</y-m>
+			<z-m>0.251</z-m>
+		</offsets>
+	</model>-->
+
+	<model>
+		<path>Models/Instruments/kni415/kni415.xml</path>
+		<offsets>
+			<x-m> 0.0028</x-m>
+			<y-m> 0.093</y-m>
+			<z-m>-0.176</z-m>
+		</offsets>
+	</model>
+	
+	
+	<model>
+		<path>Models/Instruments/standby-ai/standby-ai.xml</path>
+		<offsets>
+			<x-m> 0.0   </x-m>
+			<y-m>-0.211 </y-m>
+			<z-m>-0.06  </z-m>
+		</offsets>
+	</model>
+	
+	<!-- annunciators -->
+	<model>
+		<path>Models/Instruments/annunciator/stall_warning.xml</path>
+		<offsets>
+			<x-m> 0.0   </x-m>
+			<y-m>-0.155 </y-m>
+			<z-m> 0.0255</z-m>
+		</offsets>
+	</model>
+	
+</PropertyList>

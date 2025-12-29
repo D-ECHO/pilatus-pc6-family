@@ -93,15 +93,15 @@ livery_update.stop();
 	</model>
 	
 	<model>
-		<path>Models/Instruments/asi/asi.xml</path>
+		<path>Panels/pilots-flight-inst.xml</path>
 		<offsets>
 			<x-m>2.992</x-m>
-			<y-m>-0.386</y-m>
+			<y-m>-0.283</y-m>
 			<z-m>0.453</z-m>
 		</offsets>
 	</model>
 	
-	
+	<!--
 	<model>
 		<name>Attitude Indicator</name>
 		<path>Models/Instruments/ai/ai-gauge.xml</path>
@@ -120,9 +120,9 @@ livery_update.stop();
 			<y-m>-0.184</y-m>
 			<z-m>0.453</z-m>
 		</offsets>
-	</model>
+	</model>-->
 	
-<!-- indicateur de trim -->
+<!-- indicateur de trim --><!--
 	<model>
 		<name>Trim</name>
 		<path>Models/Instruments/trim/trim.xml</path>
@@ -131,8 +131,8 @@ livery_update.stop();
 			<y-m>-0.48</y-m>
 			<z-m>0.39</z-m>
 		</offsets>
-	</model>
-	
+	</model>-->
+	<!--
 	<model>
 		<path>Models/Instruments/turn/turn.xml</path>
 		<offsets>
@@ -140,8 +140,8 @@ livery_update.stop();
 			<y-m>-0.386</y-m>
 			<z-m>0.353</z-m>
 		</offsets>
-	</model>
-	
+	</model>-->
+	<!--
 	<model>
 		<name>Pilot HSI</name>
 		<path>Models/Instruments/hdg/hdg.xml</path>
@@ -160,8 +160,8 @@ livery_update.stop();
 			<y-m>-0.184</y-m>
 			<z-m>0.353</z-m>
 		</offsets>
-	</model>
-
+	</model>-->
+<!--
 	<model>
 		<name>Altimeter Para</name>
 		<path>Models/Instruments/alt_para/alt_para.xml</path>
@@ -170,7 +170,7 @@ livery_update.stop();
 			<y-m>-0.184</y-m>
 			<z-m>0.251</z-m>
 		</offsets>
-	</model>
+	</model>-->
 	
 	<!-- gps -->
 	<model>
@@ -184,8 +184,7 @@ livery_update.stop();
 	</model>
 	
 	<model>
-		<name>Torq gauge</name>
-		<path>Models/Instruments/torque/torque.xml</path>
+		<path>Models/Instruments/engine/trq.xml</path>
 		<offsets>
 			<x-m>2.987</x-m>
 			<y-m>-0.09</y-m>
@@ -194,8 +193,7 @@ livery_update.stop();
 	</model>
 	
 	<model>
-		<name>ITT gauge</name>
-		<path>Models/Instruments/itt/itt.xml</path>
+		<path>Models/Instruments/engine/itt.xml</path>
 		<offsets>
 			<x-m>2.987</x-m>
 			<y-m>-0.02</y-m>
@@ -204,8 +202,7 @@ livery_update.stop();
 	</model>
 
 	<model>
-		<name>RPM gauge</name>
-		<path>Models/Instruments/prop-rpm/prop-rpm.xml</path>
+		<path>Models/Instruments/engine/np.xml</path>
 		<offsets>
 			<x-m>2.987</x-m>
 			<y-m>-0.09</y-m>
@@ -214,8 +211,7 @@ livery_update.stop();
 	</model>
 	
 	<model>
-		<name>prop percent rpm gauge</name>
-		<path>Models/Instruments/prop_percent_rpm/prop_percent_rpm.xml</path>
+		<path>Models/Instruments/engine/ng.xml</path>
 		<offsets>
 			<x-m>2.987</x-m>
 			<y-m>-0.02</y-m>
@@ -245,42 +241,38 @@ livery_update.stop();
 	
 
 	<model>
-		<name>radiomixer</name>
-		<path>Models/Instruments/ka134/ka134.xml</path>
+		<path>Models/Instruments/gma340/gma340.xml</path>
 		<offsets>
 			<x-m>2.992</x-m>
 			<y-m>0.105</y-m>
-			<z-m>0.504</z-m>
+			<z-m>0.515</z-m>
 		</offsets>
 	</model>
-	
 	<model>
-		<name>com1</name>
-		<path>Models/Instruments/ky196/ky196-comm1.xml</path>
+		<path>Models/Instruments/kx165/kx165-1.xml</path>
 		<offsets>
 			<x-m>2.993</x-m>
 			<y-m>0.105</y-m>
-			<z-m>0.481</z-m>
+			<z-m>0.455</z-m>
 		</offsets>
 	</model>
 	
+	
 	<model>
-		<name>com2</name>
-		<path>Models/Instruments/ky196/ky196-comm2.xml</path>
+		<path>Models/Instruments/kx165/kx165-2.xml</path>
 		<offsets>
 			<x-m>2.993</x-m>
 			<y-m>0.105</y-m>
-			<z-m>0.447</z-m>
+			<z-m>0.405</z-m>
 		</offsets>
 	</model>
 
 	<model>
-		<name>ident</name>
-		<path>Models/Instruments/KT76A/KT76A.xml</path>
+		<path>Models/Instruments/kt74/kt74.xml</path>
 		<offsets>
 			<x-m>2.983</x-m>
 			<y-m>0.105</y-m>
-			<z-m>0.388</z-m>
+			<z-m>0.37</z-m>
 		</offsets>
 	</model>
 
@@ -292,28 +284,19 @@ livery_update.stop();
 			<y-m>0.105</y-m>
 			<z-m>0.438</z-m>
 		</offsets>
-	</model>
+	</model>-->
 	
 	<model>
-		<path>Aircraft/Instruments-3d/kr87-adf/kr87.xml</path>
+		<path>Models/Instruments/kr87-adf/kr87.xml</path>
 		<offsets>
 			<x-m>2.987</x-m>
-			<y-m>0.105</y-m>
+			<y-m>0.28</y-m>
 			<z-m>0.38</z-m>
 		</offsets>
 	</model>
 
-	<model>
-		<path>Aircraft/Instruments-3d/kt70/kt70.xml</path>
-		<offsets>
-			<x-m>2.987</x-m>
-			<y-m>0.105</y-m>
-			<z-m>0.34</z-m>
-		</offsets>
-	</model>
--->
 
-	<!-- annunciators -->
+	<!-- annunciators --><!--
 	<model>
 		<name>stall warning</name>
 		<path>Models/Instruments/annunciator/stall_warning.xml</path>
@@ -322,7 +305,7 @@ livery_update.stop();
 			<y-m>-0.457</y-m>
 			<z-m>0.453</z-m>
 		</offsets>
-	</model>
+	</model>-->
 	
 	<model>
 		<name>caution warning</name>
@@ -348,7 +331,7 @@ livery_update.stop();
 		<name>annunciator</name>
 		<path>Models/Instruments/annunciator/annunciator.xml</path>
 		<offsets>
-			<x-m>2.981</x-m>
+			<x-m>2.985</x-m>
 			<y-m>-0.051</y-m>
 			<z-m>0.288</z-m>
 		</offsets>

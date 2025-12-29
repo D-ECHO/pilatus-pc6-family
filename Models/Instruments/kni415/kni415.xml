@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+	
+	<path>kni415.ac</path>
+	
+	<params>
+		<light-property type="string">systems/electrical/outputs/instrument-lights-norm</light-property>
+	</params>
+	
+	<effect>
+		<inherits-from>Models/Effects/interior/instrument-glass</inherits-from>
+		<object-name>kni415.glass</object-name>
+	</effect>
+	
+	<animation>
+		<type>material</type>
+		<object-name>kni415</object-name>
+		<object-name>kni415.test_btn</object-name>
+		<object-name>kni415.knob</object-name>
+		<object-name>kni415.needle</object-name>
+		<object-name>kni415.off_flag</object-name>
+		<object-name>kni415.dh_needle</object-name>
+		<emission>
+			<red>   0.6 </red>
+			<green> 0.6 </green>
+			<blue>  0.6 </blue>
+			<factor-prop alias="/params/light-property" />
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>kni415.needle</object-name>
+		<property>instrumentation/radar-altimeter/indicated-altitude-ft</property>
+		<interpolation>
+			<entry><ind>    0 </ind><dep>    0 </dep></entry>>
+			<entry><ind>  500 </ind><dep> -165 </dep></entry>
+			<entry><ind> 2000 </ind><dep> -240 </dep></entry>
+			<entry><ind> 2500 </ind><dep> -265 </dep></entry>
+		</interpolation>
+		<axis>
+			<x> 1 </x>
+		</axis>
+		<center>
+			<z-m> -0.003 </z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>kni415.invalid_flag</object-name>
+		<property>instrumentation/radar-altimeter/invalid-flag</property>
+		<factor>-30</factor>
+		<offset-deg>30</offset-deg>
+		<axis>
+			<x> 1 </x>
+		</axis>
+		<center>
+			<y-m> -0.02 </y-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>kni415.dh_needle</object-name>
+		<property>instrumentation/radar-altimeter/decision-height</property>
+		<interpolation>
+			<entry><ind>    0 </ind><dep>    0 </dep></entry>>
+			<entry><ind>  500 </ind><dep> -165 </dep></entry>
+			<entry><ind> 2000 </ind><dep> -240 </dep></entry>
+		</interpolation>
+		<axis>
+			<x> 1 </x>
+		</axis>
+		<center>
+			<z-m> -0.003 </z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>kni415.knob</object-name>
+		<property>instrumentation/radar-altimeter/decision-height</property>
+		<factor>1</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+		<center>
+			<y-m> .031</y-m>
+			<z-m>-.031</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/radar-altimeter/decision-height</property>
+				<factor>25</factor>
+				<min>0</min>
+				<max>2000</max>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>decisionheight</tooltip-id>
+				<label>Decision Height: %04.0f ft</label>
+				<property>instrumentation/radar-altimeter/decision-height</property>
+			</binding>
+		</hovered>
+	</animation>
+	
+	<!-- DH Lamp -->
+	<animation>
+		<type>pick</type>
+		<object-name>kni415.dh_lamp</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/radar-altimeter/dh-light-pressed</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>instrumentation/radar-altimeter/dh-light-pressed</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>dh_inhib</tooltip-id>
+				<label>Disable Decision Height Annunciator</label>
+			</binding>
+		</hovered>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>kni415.dh_lamp</object-name>
+		<property>instrumentation/radar-altimeter/dh-light-pressed</property>
+		<factor>-0.002</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>kni415.dh_lamp</object-name>
+		<emission>
+			<red>   1 </red>
+			<green> 1 </green>
+			<blue>  1 </blue>
+		</emission>
+		<condition>
+			<and>
+				<property>instrumentation/radar-altimeter/serviceable</property>
+				<not>
+					<property>instrumentation/radar-altimeter/dh-light-inhibit</property>
+				</not>
+				<less-than>
+					<property>instrumentation/radar-altimeter/indicated-altitude-ft</property>
+					<property>instrumentation/radar-altimeter/decision-height</property>
+				</less-than>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>kni415.test_btn</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/radar-altimeter/test-button</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>instrumentation/radar-altimeter/test-button</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>rad_alt_test</tooltip-id>
+				<label>Radar Altimeter Test</label>
+			</binding>
+		</hovered>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>kni415.test_btn</object-name>
+		<property>instrumentation/radar-altimeter/test-button</property>
+		<factor>-0.002</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	
+	<!-- Radar Alt Guage Tooltip -->
+	<animation>
+		<type>pick</type>
+		<object-name>kni415</object-name>
+		<action></action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>radaralt</tooltip-id>
+				<label>AGL: %5.0f ft</label>
+				<property>position/altitude-agl-ft</property>
+			</binding>
+		</hovered>
+	</animation>
+	
+	<!-- Label Text -->
+	<text>
+		<name>LabelText</name>
+		<type type="string">literal</type>
+		<text type="string">Radar Altimeter</text>
+		<draw-text type="bool">true</draw-text>
+		<font>Helvetica.txf</font>
+		<character-size type="double">0.020</character-size>
+		<character-aspect-ratio type="double">1.0</character-aspect-ratio>
+		<axis-alignment>yz-plane</axis-alignment>
+		<max-height>0.2</max-height>
+		<max-width>0.1</max-width>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+		<alignment>center-center</alignment>
+		<offsets>
+			<x-m> 0.02</x-m>
+			<y-m> 0.0 </y-m>
+			<z-m> 0.0 </z-m>
+		</offsets>
+	</text>
+	
+	<animation>
+		<type>material</type>
+		<object-name>LabelText</object-name>
+		<emission>
+			<red>0.7</red>
+			<green>0.7</green>
+			<blue>0.7</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LabelText</object-name>
+		<condition>
+			<property>/sim/panel-hotspots</property>
+		</condition>
+	</animation>
+	
+</PropertyList>

@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<PropertyList>
+	
+	<path>ka51b.ac</path>
+	
+	<params>
+		<light-property type="string">systems/electrical/outputs/flt-panel-lights-norm[0]</light-property>
+	</params>
+	
+	<animation>
+		<type>material</type>
+		<object-name>ka51b</object-name>
+		<object-name>ka51b.ind</object-name>
+		<object-name>ka51b.slave_sw</object-name>
+		<object-name>ka51b.slew_sw</object-name>
+		<emission>
+			<red>   0.6 </red>
+			<green> 0.4 </green>
+			<blue>  0.4 </blue>
+			<factor-prop alias="/params/light-property" />
+		</emission>
+	</animation>
+	
+	<effect>
+		<inherits-from>Models/Effects/interior/instrument-glass</inherits-from>
+		<object-name>ka51b.glass</object-name>
+	</effect>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ka51b.ind</object-name>
+		<property>instrumentation/ka51b/heading-diff-norm</property>
+		<factor>90</factor>
+		<axis>
+			<y>1</y>
+		</axis>
+		<center>
+			<x-m>-0.005</x-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>ka51b.slave_sw</object-name>
+		<property>instrumentation/ka51b/slave-switch</property>
+		<offset-deg>-40</offset-deg>
+		<factor>40</factor>
+		<axis>
+			<y>1</y>
+		</axis>
+		<center>
+			<x-m>0.005</x-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/ka51b/slave-switch</property>
+				<min>0</min>
+				<max>1</max>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>hsi-slave</tooltip-id>
+				<label>HSI Slaving: %s</label>
+				<mapping>on-off</mapping>
+				<property>instrumentation/ka51b/slave-switch</property>
+			</binding>
+		</hovered>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ka51b.slew_sw</object-name>
+		<property>instrumentation/ka51b/slew-switch</property>
+		<factor>-20</factor>
+		<axis>
+			<y>1</y>
+		</axis>
+		<center>
+			<x-m>0.005</x-m>
+		</center>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>ka51b.slew_sw</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/ka51b/slew-switch</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>instrumentation/ka51b/slew-switch</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>1</button>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/ka51b/slew-switch</property>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>instrumentation/ka51b/slew-switch</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>hsi-slew</tooltip-id>
+				<label>Slew DG: %3.0f</label>
+				<mapping>left-right</mapping>
+				<property>instrumentation/ka51b/slew-switch</property>
+			</binding>
+		</hovered>
+	</animation>
+	
+</PropertyList>

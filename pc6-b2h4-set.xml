@@ -19,14 +19,19 @@ Decembre 2010 - Mars 2011	Cheney Jean-Pierre
 		</long-description>
 		<authors>
 			<author>
-				<nick>Detlef Faber</nick>
+				<name>Detlef Faber</name>
 			</author>
 			<author>
-				<nick>JeeP Cheney</nick>
+				<name>JeeP Cheney</name>
 			</author>
 			<author>
 				<description>FDM</description>
-				<nick>TheEagle</nick>
+				<name>TheEagle</name>
+				<email>thefgfseagle@gmail.com</email>
+			</author>
+			<author>
+				<description>Instrument Panel Improvements</description>
+				<name>Bea Wolf</name>
 				<email>thefgfseagle@gmail.com</email>
 			</author>
 		</authors>
@@ -88,6 +93,16 @@ Decembre 2010 - Mars 2011	Cheney Jean-Pierre
 			<property-rule n="100">
 				<name>Instrument indications</name>
 				<path>Systems/instruments.xml</path>
+			</property-rule>
+			<property-rule n="101">
+				<name>KNI415 Altimeter</name>
+				<path>Models/Instruments/kni415/kni415-property-rules.xml</path>
+			</property-rule>
+			<property-rule n="102">
+				<path>Models/Instruments/kt74/kt74-property-rules.xml</path>
+			</property-rule>
+			<property-rule n="103">
+				<path>Models/Instruments/kcs55a/kcs55a-property-rules.xml</path>
 			</property-rule>
 		</systems>
 		<instrumentation>
@@ -702,13 +717,26 @@ Never exceed 50 of torque (it can damage the propeller reducter), 1090 C of ITT 
 			<file>Nasal/pc6.nas</file>
 			<file>Nasal/doors.nas</file>
 			<file>Nasal/registration.nas</file>
-			<file>Nasal/electrical.nas</file>
-			<file>Nasal/radio.nas</file>
+			<file>Nasal/electrical.nas</file><!--
+			<file>Nasal/radio.nas</file>-->
 			<file>Nasal/annunciators.nas</file>
 		</pc6>
 		<systems>
 			<file>Models/Instruments/KLN90B/kln90b.nas</file>
 		</systems>
+		
+		<kt74>
+			<file>Models/Instruments/kt74/kt74.nas</file>
+		</kt74>
+		
+		<kr87>
+			<file>Nasal/kr87.nas</file>
+		</kr87>
+		
+		<!--	Use "libraries" namespace to stay consistent with c172p, the origin of the KX165 instrument	-->
+		<libraries>
+			<file>Nasal/kx165a.nas</file>
+		</libraries>
 	</nasal>
 	<!-- Map Keys -->
 	<input>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<filter>
+		<type>noise-spike</type>
+		<max-rate-of-change>1</max-rate-of-change>
+		<input>
+			<expression>
+				<table>
+					<property>/rendering/scene/ambient/red</property>
+					<entry>
+						<ind>0.0</ind>
+						<dep>0.5</dep>
+					</entry>
+					<entry>
+						<ind>0.25</ind>
+						<dep>1.0</dep>
+					</entry>
+				</table>
+			</expression>
+		</input>
+		<output>/instrumentation/transponder/display/brightness</output>
+	</filter>
+</PropertyList>

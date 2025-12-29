@@ -372,10 +372,12 @@ var update_virtual_bus = func(dt,totalVolt){
 		# Heading-indicator Power
 		if (getprop("/controls/electric/circuitbreaker/cb_5_3")) {
 			setprop("/systems/electrical/outputs/heading-indicator", totalVolt);
+			setprop("/systems/electrical/outputs/DG", totalVolt);
 			setprop("/instrumentation/heading-indicator/serviceable", 1);
 			load += 1.8;
 		} else {
 			setprop("/systems/electrical/outputs/heading-indicator", 0.0);
+			setprop("/systems/electrical/outputs/DG", 0.0);
 			setprop("/instrumentation/heading-indicator/serviceable", 0);
 		}
 		

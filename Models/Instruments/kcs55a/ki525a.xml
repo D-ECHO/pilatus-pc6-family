@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<!--
+KING KI-525A Pictorial Indicator
+Syd Adams and Bea Wolf
+-->
+
+<PropertyList>
+	
+	<path>ki525a.ac</path>
+	
+	<params>
+		<light-property type="string">systems/electrical/outputs/instrument-lights-norm</light-property>
+	</params>
+	
+	<animation>
+		<type>material</type>
+		<object-name>ki525a.compass</object-name>
+		<object-name>ki525a.crs_pointer</object-name>
+		<object-name>ki525a.dev_pointer</object-name>
+		<object-name>ki525a.dir_pointer</object-name>
+		<object-name>ki525a.hdg_pointer</object-name>
+		<object-name>ki525a.nav_flag</object-name>
+		<object-name>ki525a.hdg_flag</object-name>
+		<object-name>ki525a.gs_pointer</object-name>
+		<emission>
+			<red>   0.6 </red>
+			<green> 0.4 </green>
+			<blue>  0.4 </blue>
+			<factor-prop alias="/params/light-property" />
+		</emission>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>ki525a</object-name>
+		<object-name>ki525a.hdg_knob</object-name>
+		<object-name>ki525a.crs_knob</object-name>
+		<emission>
+			<red>   0.3 </red>
+			<green> 0.2 </green>
+			<blue>  0.2 </blue>
+			<factor-prop alias="/params/light-property" />
+		</emission>
+	</animation>
+	
+	<effect>
+		<inherits-from>Models/Effects/interior/instrument-glass</inherits-from>
+		<object-name>ki525a.glass</object-name>
+	</effect>
+	
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ki525a.hdg_pointer</object-name>
+		<property>autopilot/settings/heading-bug-deg</property>
+		<axis>
+			<x>-1</x>
+		</axis>
+		<center>
+			<z-m>-0.0017</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ki525a.crs_pointer</object-name>
+		<object-name>ki525a.dev_pointer</object-name>
+		<object-name>ki525a.dir_pointer</object-name>
+		<object-name>ki525a.hdg_pointer</object-name>
+		<object-name>ki525a.compass</object-name>
+		<property>instrumentation/heading-indicator-dg/indicated-heading-deg</property>
+		<axis>
+			<x>1</x>
+		</axis>
+		<center>
+			<z-m>-0.0017</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ki525a.crs_pointer</object-name>
+		<object-name>ki525a.dev_pointer</object-name>
+		<object-name>ki525a.dir_pointer</object-name>
+		<property>instrumentation/nav/radials/selected-deg</property>
+		<axis>
+			<x>-1</x>
+		</axis>
+		<center>
+			<z-m>-0.0017</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>ki525a.crs_knob</object-name>
+		<property>instrumentation/nav/radials/selected-deg</property>
+		<factor>-25</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+		<center>
+			<y-m>-0.031</y-m>
+			<z-m>-0.029</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/nav/radials/selected-deg</property>
+				<factor>1.0</factor>
+				<min>0</min>
+				<max>359</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>nav-radial</tooltip-id>
+				<label>Nav1 Radial: %3.0f</label>
+				<property>instrumentation/nav/radials/selected-deg</property>
+			</binding>
+		</hovered>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>ki525a.hdg_knob</object-name>
+		<property>autopilot/settings/heading-bug-deg</property>
+		<factor>-25</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+		<center>
+			<y-m> 0.031</y-m>
+			<z-m>-0.029</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/heading-bug-deg</property>
+				<factor>1.0</factor>
+				<min>0</min>
+				<max>359</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>heading-bug</tooltip-id>
+				<label>Heading Bug: %3.0f</label>
+				<property>autopilot/settings/heading-bug-deg</property>
+			</binding>
+		</hovered>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>ki525a.dev_pointer</object-name>
+		<property>instrumentation/nav/heading-needle-deflection</property>
+		<interpolation>
+			<entry><ind>-10.0</ind><dep>-0.018</dep></entry>
+			<entry><ind>0.0</ind><dep>0.0</dep></entry>
+			<entry><ind>10.0</ind><dep>0.018</dep></entry>
+		</interpolation>
+		<axis>
+			<y>1</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>ki525a.gs_pointer</object-name>
+		<property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
+		<factor>0.0116</factor>
+		<axis>
+			<z>1</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ki525a.dir_pointer</object-name>
+		<property>instrumentation/ki525a/to-from-flag</property>
+		<offset-deg>-90</offset-deg>
+		<factor>90</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+		<center>
+			<z-m>-0.0017</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ki525a.nav_flag</object-name>
+		<property>instrumentation/ki525a/nav-flag</property>
+		<factor>30</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+		<center>
+			<y-m>-0.03</y-m>
+			<z-m> 0.03</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ki525a.hdg_flag</object-name>
+		<property>instrumentation/ki525a/hdg-flag</property>
+		<factor>30</factor>
+		<axis>
+			<x>-1</x>
+		</axis>
+		<center>
+			<y-m> 0.03</y-m>
+			<z-m> 0.03</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ki525a.gs_pointer</object-name>
+		<condition>
+			<and>
+				<property>instrumentation/nav[0]/has-gs</property>
+				<less-than>
+					<property>instrumentation/nav[0]/gs-distance</property>
+					<value>30000.0</value>
+				</less-than>
+			</and>
+		</condition>
+	</animation>
+	
+	<!-- Label Text -->
+	<text>
+		<name>LabelText</name>
+		<type type="string">literal</type>
+		<text type="string">HSI</text>
+		<draw-text type="bool">true</draw-text>
+		<font>Helvetica.txf</font>
+		<character-size type="double">0.020</character-size>
+		<character-aspect-ratio type="double">1.0</character-aspect-ratio>
+		<axis-alignment>yz-plane</axis-alignment>
+		<max-height>0.2</max-height>
+		<max-width>0.1</max-width>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+		<alignment>center-center</alignment>
+		<offsets>
+			<x-m> 0.02</x-m>
+			<y-m> 0.0 </y-m>
+			<z-m> 0.0 </z-m>
+		</offsets>
+	</text>
+	
+	<animation>
+		<type>material</type>
+		<object-name>LabelText</object-name>
+		<emission>
+			<red>0.7</red>
+			<green>0.7</green>
+			<blue>0.7</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LabelText</object-name>
+		<condition>
+			<property>/sim/panel-hotspots</property>
+		</condition>
+	</animation>
+	
+</PropertyList>
