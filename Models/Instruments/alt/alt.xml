@@ -85,7 +85,7 @@
 			<entry><ind> 31.0 </ind><dep> 300 </dep></entry>
 		</interpolation>
 		<axis>
-			<x> -1 </x>
+			<x> 1 </x>
 		</axis>
 	</animation>
 	

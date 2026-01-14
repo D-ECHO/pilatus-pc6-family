@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>md222.ac</path>
+
+	<effect>
+		<inherits-from>Models/Effects/interior/instrument-glass</inherits-from>
+		<object-name>md222.glass</object-name>
+	</effect>
+
+	<animation>
+		<type>material</type>
+		<object-name>md222</object-name>
+		<object-name>md222.obs_ring</object-name>
+		<emission>
+			<red>0.30</red>
+			<green>0.15</green>
+			<blue>0.05</blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+		</emission>
+	</animation>
+
+</PropertyList>

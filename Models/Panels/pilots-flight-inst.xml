@@ -102,6 +102,14 @@
 		</offsets>
 	</model>
 	
+	<model>
+		<path>Models/Instruments/KLN90B/kln90b.xml</path>
+		<offsets>
+			<x-m> 0.0 </x-m>
+			<y-m>-0.05</y-m>
+			<z-m>-0.16</z-m>
+		</offsets>
+	</model>
 	
 	<model>
 		<path>Models/Instruments/standby-ai/standby-ai.xml</path>
@@ -112,13 +120,47 @@
 		</offsets>
 	</model>
 	
-	<!-- annunciators -->
+	<model>
+		<path>Models/Instruments/md222/md222.xml</path>
+		<offsets>
+			<x-m> 0.0   </x-m>
+			<y-m>-0.211 </y-m>
+			<z-m>-0.124 </z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Models/Instruments/clock/clock.xml</path>
+		<offsets>
+			<x-m> 0.0   </x-m>
+			<y-m>-0.211 </y-m>
+			<z-m>-0.188 </z-m>
+		</offsets>
+	</model>
+	
+	<!-- Annunciators -->
 	<model>
 		<path>Models/Instruments/annunciator/stall_warning.xml</path>
 		<offsets>
 			<x-m> 0.0   </x-m>
 			<y-m>-0.155 </y-m>
 			<z-m> 0.0255</z-m>
+		</offsets>
+	</model>
+	<model>
+		<path>Models/Instruments/annunciator/caution_warning.xml</path>
+		<offsets>
+			<x-m> 0.0  </x-m>
+			<y-m> 0.06 </y-m>
+			<z-m> 0.049</z-m>
+		</offsets>
+	</model>
+	<model>
+		<path>Models/Instruments/annunciator/warning_warning.xml</path>
+		<offsets>
+			<x-m> 0.0  </x-m>
+			<y-m> 0.093</y-m>
+			<z-m> 0.049</z-m>
 		</offsets>
 	</model>
 	

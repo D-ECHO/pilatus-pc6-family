@@ -172,17 +172,6 @@ livery_update.stop();
 		</offsets>
 	</model>-->
 	
-	<!-- gps -->
-	<model>
-		<name>GPS</name>
-		<path>Models/Instruments/KLN90B/kln90b.xml</path>
-		<offsets>
-			<x-m>2.992</x-m>
-			<y-m>-0.35</y-m>
-			<z-m>0.262</z-m>
-		</offsets>
-	</model>
-	
 	<model>
 		<path>Models/Instruments/engine/trq.xml</path>
 		<offsets>
@@ -307,25 +296,6 @@ livery_update.stop();
 		</offsets>
 	</model>-->
 	
-	<model>
-		<name>caution warning</name>
-		<path>Models/Instruments/annunciator/caution_warning.xml</path>
-		<offsets>
-			<x-m>2.984</x-m>
-			<y-m>-0.186</y-m>
-			<z-m>0.512</z-m>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>warning warning</name>
-		<path>Models/Instruments/annunciator/warning_warning.xml</path>
-		<offsets>
-			<x-m>2.984</x-m>
-			<y-m>-0.234</y-m>
-			<z-m>0.512</z-m>
-		</offsets>
-	</model>
 	
 	<model>
 		<name>annunciator</name>
